@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .container {
+    width: var(--default-layout-width);
+    display: flex;
+    min-height: 500px;
+    flex-direction: row;
+    align-items: start;
+    .content {
+      flex: 1;
+      background: #e51515;
+    }
+  }
+}
