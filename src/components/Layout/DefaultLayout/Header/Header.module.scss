@@ -1,26 +1,81 @@
+$background-color: #f0f0f0;
+$text-color: darken($background-color, 20%);
 .wrapper {
+  --border-radius: 92px;
+  width: 100%;
   height: var(--default-layout-header-height);
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
   display: flex;
   justify-content: center;
-  width: 100%;
-  .inner {
-    height: 100%;
-    width: var(--default-layout-width);
-    background-color: #ccc;
-  }
+  top: 0px;
+  position: sticky;
+  z-index: 3000;
+  background-color: #fff;
+  padding-right: 24px;
+  padding-left: 16px;
+}
+.inner {
+  height: 100%;
+  width: var(--default-layout-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-// .wrapper-t {
-//   display: flex;
-//   justify-content: space-around;
-//   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
-//   height: 60px;
-//   width: calc(100% + 0px);
-//   top: 0px;
-//   position: fixed;
-//   -webkit-box-align: center;
-//   align-items: center;
-//   background: rgb(255, 255, 255);
-//   z-index: 3000;
-// }
+.search {
+  width: 361px;
+  height: 46px;
+  background-color: $background-color;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  &:hover {
+    outline: $text-color solid 0.5px;
+    .search-btn {
+      cursor: pointer;
+      background-color: darken($background-color, 5%);
+      color: darken($text-color, 90%);
+    }
+  }
+  &:focus-within {
+    outline: $text-color solid 0.5px;
+  }
+
+  input {
+    flex: 1;
+    font-size: 1.6rem;
+    margin-left: 16px;
+    color: darken($text-color, 80%);
+    caret-color: var(--primary);
+    &:not(:placeholder-shown) ~ .search-btn {
+      color: darken($text-color, 90%);
+    }
+  }
+
+  span {
+    width: 0.8px;
+    height: 28px;
+    margin: 9px 0;
+    background: rgba(22, 24, 35, 0.12);
+  }
+  .search-btn {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    width: 50px;
+    font-size: 1.8rem;
+    color: $text-color;
+    &:active {
+      background-color: $background-color;
+    }
+  }
+  .clear,
+  .loading {
+    width: 18px;
+    height: 18px;
+    margin: auto 10px;
+    color: $text-color;
+    font-size: large;
+  }
+  .invisible {
+    display: none;
+  }
+}

@@ -5,14 +5,14 @@ import Sidebar from './Sidebar'
 
 function DefaultLayout({ children }) {
   const cx = classNames.bind(styles)
-  console.log(styles);
-  
   return (
     <div className={cx('wrapper')}>
       <Header />
-      <div className={cx('container')}>
-        <Sidebar />
-        <div className={cx("content")}>{children}</div>
+      <div className={cx('body')}>
+        <div className={cx('container')}>
+          <Sidebar />
+          <div className={cx('content')}>{children}</div>
+        </div>
       </div>
     </div>
   )
