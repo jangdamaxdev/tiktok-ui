@@ -1,0 +1,59 @@
+$sizeAvatar: 40px;
+$background-color: #f0f0f0;
+
+.relatedKeys,
+.relatedAccounts {
+  li,
+  .viewAll {
+    display: flex;
+    padding: 9px 16px;
+    align-items: center;
+    cursor: pointer;
+    -webkit-box-align: center;
+    &:hover {
+      background-color: $background-color;
+    }
+  }
+  span {
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+  .title,
+  .username,
+  .nickname {
+    padding: 0 5px;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 24px;
+  }
+  
+}
+
+// Account
+label {
+  padding: 0 10px;
+  color: var(--text-sub-color);
+}
+.relatedAccounts {
+  .acccountDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .Avatar {
+    border-radius: 50%;
+    width: $sizeAvatar;
+    height: $sizeAvatar;
+    object-fit: cover;
+    padding: 3px;
+  }
+
+  .nickname {
+    color: var(--text-sub-color);
+  }
+  .check {
+    margin-left: 5px;
+    color: rgb(0, 227, 227);
+  }
+}

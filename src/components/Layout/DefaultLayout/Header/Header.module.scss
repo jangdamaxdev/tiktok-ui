@@ -1,5 +1,6 @@
 $background-color: #f0f0f0;
 $text-color: darken($background-color, 20%);
+$width-search: 361px;
 .wrapper {
   --border-radius: 92px;
   width: 100%;
@@ -23,7 +24,7 @@ $text-color: darken($background-color, 20%);
 }
 
 .search {
-  width: 361px;
+  width: $width-search;
   height: 46px;
   background-color: $background-color;
   border-radius: var(--border-radius);
@@ -78,4 +79,7 @@ $text-color: darken($background-color, 20%);
   .invisible {
     display: none;
   }
+}
+.box {
+  width: $width-search;  
 }

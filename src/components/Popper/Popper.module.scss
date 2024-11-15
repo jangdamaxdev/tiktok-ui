@@ -1,0 +1,15 @@
+.wrapper {
+  background-color: #ffffff;
+  width: 100%;
+  max-height: min(-156px + 100vh, 760px);
+  min-height: 100px;
+  margin-top: 8px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 12px;
+  border-radius: 8px;
+  padding-top: 8px;
+  overflow: hidden auto;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
