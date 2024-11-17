@@ -16,7 +16,7 @@ function App() {
                   <Page />
                 </Layout>
               }
-            />
+            /> 
           )
         })}
       </Routes>
