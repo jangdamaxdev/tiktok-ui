@@ -14,13 +14,13 @@ $width-search: 361px;
   background-color: #fff;
   padding-right: 24px;
   padding-left: 16px;
-}
-.inner {
-  height: 100%;
-  width: var(--default-layout-width);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  .inner {
+    height: 100%;
+    width: var(--default-layout-width);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .search {
@@ -80,6 +80,12 @@ $width-search: 361px;
     display: none;
   }
 }
-.box {
-  width: $width-search;  
+// Tippy
+.searchResult {
+  width: $width-search;
+}
+// Actions
+.actions {
+  display: flex;
+  
 }

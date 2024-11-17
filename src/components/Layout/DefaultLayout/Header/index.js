@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faAppleWhole, faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 import Tippy from '@tippyjs/react/headless'
 // import 'tippy.js/dist/tippy.css' // optional
@@ -9,7 +9,8 @@ import Tippy from '@tippyjs/react/headless'
 import styles from './Header.module.scss'
 import Images from '~/assets/images'
 import { Wrapper as PopperWrapper } from '~/components/Popper'
-import SearchResult from '~/components/ContentPopper/SearchResult'
+import SearchResult from '~/components/PopperContent/SearchResult'
+import Button from '~/components/Button'
 const cx = classNames.bind(styles)
 
 function Header() {
@@ -26,21 +27,20 @@ function Header() {
   // ,[relatedKeys])
   //}
 
-
   // DATA STRUCTURE
-    // relatedKeys = ['ReactJS VN', 'ReactJS Việt Nam bị chủ sở hữu cũ bán', 'ReactJS Việt Nam không còn chất lượng']
-    // relatedAccounts = [
-    //   {
-    //     avatar: require('~/assets/images/10.gif'), // Handle static link
-    //     username: { name: 'Tham gia nhóm ReactJS Việt Nam', check: true },
-    //     nickname: 'Nhóm ReactJS',
-    //   },
-    //   {
-    //     avatar: require('~/assets/images/14.gif'), // Handle static link
-    //     username: { name: 'New ReactJS Việt Nam', check: false },
-    //     nickname: 'ReactJS Việt Nam - Private',
-    //   }
-    // ]
+  // relatedKeys = ['ReactJS VN', 'ReactJS Việt Nam bị chủ sở hữu cũ bán', 'ReactJS Việt Nam không còn chất lượng']
+  // relatedAccounts = [
+  //   {
+  //     avatar: require('~/assets/images/10.gif'), // Handle static link
+  //     username: { name: 'Tham gia nhóm ReactJS Việt Nam', check: true },
+  //     nickname: 'Nhóm ReactJS',
+  //   },
+  //   {
+  //     avatar: require('~/assets/images/14.gif'), // Handle static link
+  //     username: { name: 'New ReactJS Việt Nam', check: false },
+  //     nickname: 'ReactJS Việt Nam - Private',
+  //   }
+  // ]
 
   return (
     <header className={cx('wrapper')}>
@@ -51,9 +51,9 @@ function Header() {
           interactive
           visible={relatedKeys.length > 0}
           render={(attrs) => (
-            <div className={cx('box')} tabIndex="-1" {...attrs}>
+            <div className={cx('searchResult')} tabIndex="-1" {...attrs}>
               <PopperWrapper>
-              <SearchResult relatedKeys={relatedKeys} relatedAccounts={relatedAccounts} />
+                <SearchResult relatedKeys={relatedKeys} relatedAccounts={relatedAccounts} />
               </PopperWrapper>
             </div>
           )}
@@ -72,7 +72,14 @@ function Header() {
           </div>
         </Tippy>
 
-        <div className={cx('actions')}>ACtion Button</div>
+        <div className={cx('actions')}>
+          {/* <Button width={'100px'}>
+            <p>Log in</p>
+          </Button> */}
+          <Button>
+            <p>Apple <FontAwesomeIcon icon={faAppleWhole} /></p>
+          </Button>
+        </div>
       </div>
     </header>
   )
