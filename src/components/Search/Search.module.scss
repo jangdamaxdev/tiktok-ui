@@ -1,30 +1,7 @@
 $background-color: #f0f0f0;
 $text-color: darken($background-color, 20%);
-$width-search: 361px;
-.wrapper {
-  --border-radius: 92px;
-  width: 100%;
-  height: var(--default-layout-header-height);
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
-  display: flex;
-  justify-content: center;
-  top: 0px;
-  position: sticky;
-  z-index: 3000;
-  background-color: #fff;
-  padding-right: 24px;
-  padding-left: 16px;
-  .inner {
-    height: 100%;
-    width: var(--default-layout-width);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
 .search {
-  width: $width-search;
+  width: var(--width);
   height: 46px;
   background-color: $background-color;
   border-radius: var(--border-radius);
@@ -82,10 +59,5 @@ $width-search: 361px;
 }
 // Tippy
 .searchResult {
-  width: $width-search;
-}
-// Actions
-.actions {
-  display: flex;
-  
+  width: var(--width);
 }

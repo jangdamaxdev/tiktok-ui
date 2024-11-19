@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useLayoutEffect } from 'react'
 import styles from './Button.module.scss'
 import classNames from 'classnames/bind'
 import { Link } from 'react-router-dom'
@@ -22,7 +22,7 @@ function Button({
   //   width : '100px',
   //   radius : '5px'
   //   }
-
+  // debugger
   let Comp = 'button'
   const attributes = disabled ? {} : { onClick }
 
@@ -36,13 +36,13 @@ function Button({
   }
   // Add props to CSS --variable
   const btnRef = useRef()
-  useEffect(() => {
+  useLayoutEffect(() => {
     for (let prop in props) {
-      btnRef.current.style.setProperty(`--${prop}`, props[prop])
+      btnRef.current && btnRef.current.style.setProperty(`--${prop}`, props[prop])
     }
     return () => {
       for (let prop in props) {
-        btnRef.current.style.removeProperty(`--${prop}`)
+        btnRef.current && btnRef.current.style.removeProperty(`--${prop}`)
       }
     }
   })

@@ -1,0 +1,32 @@
+
+$width-menu-items: 250px;
+.wrapper {
+  --border-radius: 92px;
+  width: 100%;
+  height: var(--default-layout-header-height);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
+  display: flex;
+  justify-content: center;
+  top: 0px;
+  position: sticky;
+  z-index: 3000;
+  background-color: #fff;
+  padding-right: 24px;
+  padding-left: 16px;
+  .inner {
+    height: 100%;
+    width: var(--default-layout-width);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+
+// Actions
+.actions {
+  display: flex;
+}
+.menu-items{
+  width: $width-menu-items;
+}

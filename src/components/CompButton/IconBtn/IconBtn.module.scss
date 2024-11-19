@@ -1,0 +1,33 @@
+.wrapper {
+  width: var(--width, 40px);
+  height: var(--width, 40px);
+  font-size: calc(var(--width, 40px) / 1.5);
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  user-select: none;
+
+  border: 1px solid transparent;
+  background-color: var(--color, transparent);
+  color: var(--text);
+  border-radius: var(--radius, 5px);
+
+  &:hover {
+    filter: brightness(90%);
+  }
+  &:active {
+    filter: brightness(100%);
+  }
+}
+
+// .outline {
+//   background-color: var(--white);
+//   color: var(--color, var(--primary));
+//   border-color: var(--color, var(--primary));
+// }
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}

@@ -1,0 +1,31 @@
+$sizeAvatar: 40px;
+$background-color: #f0f0f0;
+@mixin item {
+  display: flex;
+  padding: 9px 16px;
+  align-items: center;
+  cursor: pointer;
+  -webkit-box-align: center;
+  font-size: 2rem;
+}
+.MenuItems {
+  display: flex;
+  flex-direction: column;
+  li {
+    @include item;
+    &:hover {
+      background-color: $background-color;
+    }
+  }
+  span {
+    flex-shrink: 0;
+  }
+  .title {
+    padding: 0 10px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}
+.back {
+  @include item;
+}
