@@ -7,9 +7,9 @@
   --text-color: #333;
   --text-sub-color: #a5a3a3;
   //Default layout
-  --default-layout-header-height: 60px;
-  --default-layout-width: 1150px;
-  --default-layout-Sidebar-width: 356px;
+  --default-layout-header-height: 6rem;
+  --default-layout-width: 115rem;
+  --default-layout-Sidebar-width: 35rem;
 }
 html {
   font-size: 62.5%;
@@ -37,4 +37,11 @@ input,
   outline: none;
   border: none;
   background-color: transparent;
+}
+// TIPPY
+.tippy-box{
+  background-color: #333;
+}
+.tippy-arrow{
+  color: #333;
 }

@@ -1,7 +1,4 @@
-
-$width-menu-items: 250px;
 .wrapper {
-  --border-radius: 92px;
   width: 100%;
   height: var(--default-layout-header-height);
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
@@ -11,8 +8,8 @@ $width-menu-items: 250px;
   position: sticky;
   z-index: 3000;
   background-color: #fff;
-  padding-right: 24px;
-  padding-left: 16px;
+  padding-right: 2.4rem;
+  padding-left: 1.6rem;
   .inner {
     height: 100%;
     width: var(--default-layout-width);
@@ -22,11 +19,18 @@ $width-menu-items: 250px;
   }
 }
 
-
 // Actions
 .actions {
   display: flex;
+  height: 100%;
+  align-items: center;
 }
-.menu-items{
-  width: $width-menu-items;
+.avatar {
+  width: 5rem;
+  height: 5rem;
+  margin-left: 5px;
+  img {
+    width: 100%;
+    border-radius: 100px;
+  }
 }

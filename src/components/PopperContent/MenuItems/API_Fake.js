@@ -1,25 +1,129 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
+  faArrowRightFromBracket,
   faCheck,
   faChevronLeft,
   faCircleHalfStroke,
   faCircleQuestion,
+  faGear,
   faHouse,
   faLanguage,
   faLightbulb,
+  faSackDollar,
 } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-regular-svg-icons'
 
-export const backIcon = <FontAwesomeIcon icon={faChevronLeft} />
 const createIcon = <FontAwesomeIcon icon={faHouse} />
 const langIcon = <FontAwesomeIcon icon={faLanguage} />
 const feedBackIcon = <FontAwesomeIcon icon={faCircleQuestion} />
 const darkModeIcon = <FontAwesomeIcon icon={faCircleHalfStroke} />
 const lightBulbIcon = <FontAwesomeIcon icon={faLightbulb} />
-export const checkIcon = <FontAwesomeIcon icon={faCheck} />
 
-const EN_MENU = [
-  {
+const EN = {
+  content: [
+    {
+      icon: createIcon,
+      title: 'Creator Tools',
+      children: {
+        heading: 'Creator Tools',
+        content: [
+          { icon: lightBulbIcon, title: 'Creator Tools 1' },
+          { icon: lightBulbIcon, title: 'Creator Tools 2' },
+        ],
+      },
+    },
+    {
+      icon: langIcon,
+      title: 'English',
+      children: {
+        heading: 'Language',
+        content: [
+          { icon: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', title: 'English', langID: 'EN' },
+          { icon: '🇻🇳', title: 'Vietnamese', langID: 'VN' },
+        ],
+      },
+    },
+    {
+      icon: feedBackIcon,
+      title: 'Feedback and help',
+      to: '/upload',
+    },
+    {
+      icon: darkModeIcon,
+      title: 'Dark mode',
+      children: {
+        heading: 'Dark mode',
+        content: [
+          { title: 'Dark', check: { darkMode: 'dark' } },
+          { title: 'Light', check: { darkMode: 'light' } },
+          { title: 'Use device theme', check: { darkMode: 'auto' } },
+        ],
+      },
+    },
+  ],
+}
+const VN = {
+  content: [
+    {
+      icon: createIcon,
+      title: 'Công cụ dành cho nhà sáng tạo',
+      children: {
+        heading: 'Công cụ dành cho nhà sáng tạo',
+        content: [
+          { icon: lightBulbIcon, title: 'Công cụ 1' },
+          { icon: lightBulbIcon, title: 'Công cụ 2' },
+        ],
+      },
+    },
+    {
+      icon: langIcon,
+      title: 'Tiếng Việt',
+      children: {
+        heading: 'Ngôn ngữ',
+        content: [
+          { icon: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', title: 'Tiếng Anh', langID: 'EN' },
+          { icon: '🇻🇳', title: 'Tiếng Việt', langID: 'VN' },
+        ],
+      },
+    },
+    {
+      icon: feedBackIcon,
+      title: 'Phản hồi và trợ giúp',
+      to: '/upload',
+    },
+    {
+      icon: darkModeIcon,
+      title: 'Chế độ tối',
+      children: {
+        heading: 'Chế độ tối',
+        content: [
+          { icon: '', title: 'Tối', check: { darkMode: 'dark' } },
+          { icon: '', title: 'Sáng', check: { darkMode: 'light' } },
+          { icon: '', title: 'Sử dụng chủ đề của thiết bị', check: { darkMode: 'auto' } },
+        ],
+      },
+    },
+  ],
+}
+
+const content = {
+  EN,
+  VN,
+}
+const contentLogin = {
+  avatar: require('~/assets/images/10.gif'),
+  EN: {
     content: [
+      {
+        icon: <FontAwesomeIcon icon={faUser} />,
+        title: 'View profile',
+        to: '/@user',
+      },
+      {
+        icon: <FontAwesomeIcon icon={faSackDollar} />,
+        title: 'Get Coins',
+        to: '/coin',
+      },
       {
         icon: createIcon,
         title: 'Creator Tools',
@@ -32,13 +136,18 @@ const EN_MENU = [
         },
       },
       {
+        icon: <FontAwesomeIcon icon={faGear} />,
+        title: 'Settings',
+        to: '/setting',
+      },
+      {
         icon: langIcon,
         title: 'English',
         children: {
           heading: 'Language',
           content: [
             { icon: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', title: 'English', langID: 'EN' },
-            { icon: '🇻🇳', title: 'Vietnamese', langID: 'VI' },
+            { icon: '🇻🇳', title: 'Vietnamese', langID: 'VN' },
           ],
         },
       },
@@ -53,61 +162,21 @@ const EN_MENU = [
         children: {
           heading: 'Dark mode',
           content: [
-            {  title: 'Dark', darkID: 'DA'},
-            {  title: 'Light', darkID: 'LI' },
-            {  title: 'Use device theme', darkID: 'AU' },
+            { title: 'Dark', check: { darkMode: 'dark' } },
+            { title: 'Light', check: { darkMode: 'light' } },
+            { title: 'Use device theme', check: { darkMode: 'auto' } },
           ],
         },
+      },
+      {
+        icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
+        title: 'Log out',
+        confirm: 'Log out?',
+        className: 'separate',
       },
     ],
   },
-]
-const VN_MENU = [
-  {
-    content: [
-      {
-        icon: createIcon,
-        title: 'Công cụ sáng tạo nội dung',
-        children: {
-          heading: 'Công cụ sáng tạo nội dung',
-          content: [
-            { icon: lightBulbIcon, title: 'Công cụ 1' },
-            { icon: lightBulbIcon, title: 'Công cụ 2' },
-          ],
-        },
-      },
-      {
-        icon: langIcon,
-        title: 'Tiếng Việt',
-        children: {
-          heading: 'Ngôn ngữ',
-          content: [
-            { icon: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', title: 'Tiếng Anh', langID: 'EN' },
-            { icon: '🇻🇳', title: 'Tiếng Việt', langID: 'VI' },
-          ],
-        },
-      },
-      {
-        icon: feedBackIcon,
-        title: 'Phản hồi và trợ giúp',
-        to: '/upload',
-      },
-      {
-        icon: darkModeIcon,
-        title: 'Chế độ tối',
-        children: {
-          heading: 'Chế độ tối',
-          content: [
-            { icon: '', title: 'Tối' , darkID: 'DA'},
-            { icon: '', title: 'Sáng',darkID: 'LI' },
-            { icon: '', title: 'Sử dụng chủ đề của thiết bị', darkID: 'AU' },
-          ],
-        },
-      },
-    ],
-  },
-]
-
-export default function getContentAPI(langID) {
-  return langID === 'EN' ? EN_MENU : VN_MENU
+  VN,
 }
+//
+export { content, contentLogin }

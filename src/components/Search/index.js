@@ -1,4 +1,4 @@
-import Tippy from '@tippyjs/react'
+import Tippy from '@tippyjs/react/headless'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons'
@@ -9,16 +9,15 @@ import SearchResult from '~/components/PopperContent/SearchResult'
 
 import styles from './Search.module.scss'
 
-
 const cx = classNames.bind(styles)
 function Search({ width }) {
   const [relatedKeys, setRelatedKeys] = useState([])
   const [relatedAccounts, setRelatedAccounts] = useState([])
   const divRef = useRef()
   useLayoutEffect(() => {
-    divRef.current && divRef.current.style.setProperty('--width', width)
+    divRef.current?.style.setProperty('--width', width)
     return () => {
-      divRef.current && divRef.current.style.removeProperty('--width')
+      divRef.current?.style.removeProperty('--width')
     }
   })
 
@@ -47,7 +46,9 @@ function Search({ width }) {
         )}
       >
         <div className={cx('search')}>
-          <input type="text" placeholder="Search accounts and videos" />
+          <input 
+          // value={relatedKeys} 
+          type="text" placeholder="Search accounts and videos" />
           <button className={cx('clear')}>
             <FontAwesomeIcon icon={faCircleXmark} />
           </button>

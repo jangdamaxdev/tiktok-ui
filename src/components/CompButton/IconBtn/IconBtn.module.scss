@@ -1,12 +1,12 @@
 .wrapper {
-  width: var(--width, 40px);
-  height: var(--width, 40px);
-  font-size: calc(var(--width, 40px) / 1.5);
+  width: calc(var(--width, 4rem) - 1rem);
+  height:  var(--width, 4rem);
+  font-size: calc(var(--width, 4rem) / 1.5);
   font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px;
+  margin: 8px;
   user-select: none;
 
   border: 1px solid transparent;

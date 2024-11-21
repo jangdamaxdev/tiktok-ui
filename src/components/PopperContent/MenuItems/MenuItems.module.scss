@@ -1,14 +1,16 @@
-$sizeAvatar: 40px;
 $background-color: #f0f0f0;
+
 @mixin item {
   display: flex;
   padding: 9px 16px;
-  align-items: center;
+  // align-items: center;
+  justify-content: start;
   cursor: pointer;
   -webkit-box-align: center;
   font-size: 2rem;
 }
 .MenuItems {
+  width: var(--width, 300px);
   display: flex;
   flex-direction: column;
   li {
@@ -19,13 +21,26 @@ $background-color: #f0f0f0;
   }
   span {
     flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 30px;
   }
   .title {
     padding: 0 10px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 24px;
   }
+  
 }
 .back {
   @include item;
+}
+.heading {
+  font-weight: 600 !important;
+}
+
+// className from dataRender input
+.separate{
+  border-top: 1px solid #e0e0e0
 }

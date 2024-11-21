@@ -24,31 +24,33 @@ function SearchResult({ relatedKeys, relatedAccounts }) {
   return (
     <>
       <div className={cx('relatedKeys')}>
-        {relatedKeys && relatedKeys.map((title, index) => (
-          <li key={index}>
-            <span>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </span>
-            <h4 className={cx('title')}>{title}</h4>
-          </li>
-        ))}
+        {relatedKeys &&
+          relatedKeys.map((title, index) => (
+            <li key={index}>
+              <span>
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+              </span>
+              <h4 className={cx('title')}>{title}</h4>
+            </li>
+          ))}
       </div>
 
       <label>Accounts</label>
       <div className={cx('relatedAccounts')}>
-        {relatedAccounts && relatedAccounts.map((accData, index) => (
-          <li key={index}>
-            <img className={cx('Avatar')} src={accData.avatar} alt="Avatar" />
+        {relatedAccounts &&
+          relatedAccounts.map((accData, index) => (
+            <li key={index}>
+              <img className={cx('Avatar')} src={accData.avatar} alt="Avatar" />
 
-            <div className={cx('acccountDetails')}>
-              <h4 className={cx('username')}>
-                {accData.username.name}
-                {accData.username.check && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />}
-              </h4>
-              <p className={cx('nickname')}>{accData.nickname || accData.username.name}</p>
-            </div>
-          </li>
-        ))}
+              <div className={cx('acccountDetails')}>
+                <h4 className={cx('username')}>
+                  {accData.username.name}
+                  {accData.username.check && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />}
+                </h4>
+                <p className={cx('nickname')}>{accData.nickname || accData.username.name}</p>
+              </div>
+            </li>
+          ))}
         <div className={cx('viewAll')}>
           <p>View all results for "{relatedKeys[0]}"</p>
         </div>
