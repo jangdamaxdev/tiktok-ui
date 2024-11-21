@@ -43,7 +43,7 @@ function IconBtn({
         btnRef.current && btnRef.current.style.removeProperty(`--${prop}`)
       }
     }
-  })
+  }, [props])
 
   return (
     <Comp className={cx('wrapper', { disabled })} ref={btnRef} {...attributes}>

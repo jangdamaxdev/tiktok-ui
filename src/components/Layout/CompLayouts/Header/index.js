@@ -9,10 +9,10 @@ import 'tippy.js/dist/tippy.css' // optional
 import styles from './Header.module.scss'
 import Images from '~/assets/images'
 import { Button, IconBtn } from '~/components/CompButton'
-import MenuItems from '~/components/PopperContent/MenuItems'
+import MenuItems from '~/components/TippyCustom'
 import Search from '~/components/Search'
 
-import { content, contentLogin } from '~/components/PopperContent/MenuItems/API_Fake'
+import { content, contentLogin } from '~/assets/FakeAPI'
 
 const cx = classNames.bind(styles)
 
@@ -47,7 +47,7 @@ function Header() {
           </Tippy>
 
           {/* avatar */}
-          <MenuItems dataRender={contentLogin}>
+          <MenuItems renderMenu={contentLogin} interactive delay={[0, 500]} placement="bottom-end">
             <div className={cx('avatar')}>
               <img src={contentLogin.avatar} alt="" />
             </div>
@@ -62,7 +62,7 @@ function Header() {
           </Button>
           <Button>Log in</Button>
 
-          <MenuItems dataRender={content}>
+          <MenuItems renderMenu={content}>
             <IconBtn>
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </IconBtn>
@@ -75,7 +75,7 @@ function Header() {
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         <img src={Images.src} alt="Logo" />
-        <Search width={'400px'} />
+        <Search width={'40rem'} />
         <ActionComp />
       </div>
     </header>

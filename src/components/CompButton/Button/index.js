@@ -45,7 +45,7 @@ function Button({
         btnRef.current && btnRef.current.style.removeProperty(`--${prop}`)
       }
     }
-  })
+  },[props])
 
   return (
     <Comp className={cx('wrapper', { outline, disabled, text })} ref={btnRef} {...attributes}>

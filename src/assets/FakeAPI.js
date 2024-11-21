@@ -178,5 +178,20 @@ const contentLogin = {
   },
   VN,
 }
+const searchContent = {
+  relatedKeys: ['ReactJS VN', 'ReactJS Việt Nam bị chủ sở hữu cũ bán', 'ReactJS Việt Nam không còn chất lượng'],
+  relatedAccounts: [
+    {
+      avatar: require('~/assets/images/10.gif'), // Handle static link
+      username: { name: 'Tham gia nhóm ReactJS Việt Nam', check: true },
+      nickname: 'Nhóm ReactJS',
+    },
+    {
+      avatar: require('~/assets/images/14.gif'), // Handle static link
+      username: { name: 'New ReactJS Việt Nam', check: false },
+      nickname: 'ReactJS Việt Nam - Private',
+    },
+  ],
+}
 //
-export { content, contentLogin }
+export { content, contentLogin, searchContent }

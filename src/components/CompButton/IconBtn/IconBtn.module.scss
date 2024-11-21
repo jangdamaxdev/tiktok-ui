@@ -10,8 +10,8 @@
   user-select: none;
 
   border: 1px solid transparent;
-  background-color: var(--color, transparent);
-  color: var(--text);
+  // background-color: var(--color, transparent);
+  color: var(--color,var(--text));
   border-radius: var(--radius, 5px);
 
   &:hover {

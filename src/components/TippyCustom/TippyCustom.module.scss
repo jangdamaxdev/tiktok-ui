@@ -9,10 +9,21 @@ $background-color: #f0f0f0;
   -webkit-box-align: center;
   font-size: 2rem;
 }
-.MenuItems {
-  width: var(--width, 300px);
+ 
+
+.tippycustom {
+  width: var(--TippyCustomWidth, 300px);
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
+  max-height: min(-156px + 100vh, 760px);
+  min-height: 100px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 12px;
+  border-radius: 8px;
+  padding-block: 8px;
+  overflow: hidden auto;
+  list-style-type: none;
+
   li {
     @include item;
     &:hover {
@@ -37,7 +48,7 @@ $background-color: #f0f0f0;
   @include item;
 }
 .heading {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
 
 // className from dataRender input
