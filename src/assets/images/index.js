@@ -1,4 +1,6 @@
 const images = {
-src: require('~/assets/images/Tiktok.svg').default
+logo: require('~/assets/images/Tiktok.svg').default, 
+default: require('~/assets/images/10.gif'),
+minion: require('~/assets/images/14.gif')
 }
 export default images

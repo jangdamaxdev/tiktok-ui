@@ -12,11 +12,12 @@ import Menu from '~/components/Menu'
 import Search from '~/components/Search'
 
 import { content, contentLogin } from '~/assets/FakeAPI'
+import Image from '~/components/Image'
 
 const cx = classNames.bind(styles)
 
 function Header() {
-  const isLogin = false
+  const isLogin = true
   const ActionComp = () => {
     if (isLogin) {
       return (
@@ -47,9 +48,11 @@ function Header() {
 
           {/* avatar */}
           <Menu dataRender={contentLogin} interactive delay={[0, 500]} placement="bottom-end">
-            <div className={cx('avatar')}>
-              <img src={contentLogin.avatar} alt="" />
-            </div>
+            <Image 
+            src={contentLogin.avatar} 
+            R='20rem'
+            alt="avatar" 
+            />
           </Menu>
         </div>
       )
@@ -59,10 +62,10 @@ function Header() {
           <Button text color={'#333'}>
             Upload
           </Button>
-          <Button >Log in</Button>
+          <Button>Log in</Button>
 
           <Menu dataRender={content} interactive delay={[0, 500]} placement="bottom-end">
-            <IconBtn >
+            <IconBtn>
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </IconBtn>
           </Menu>
@@ -73,8 +76,8 @@ function Header() {
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
-        <img src={Images.src} alt="Logo" />
-        <Search width='40rem' />
+        <Image src={Images.logo} W='11rem' H='4rem'/>
+        <Search width="40rem" />
         <ActionComp />
       </div>
     </header>
