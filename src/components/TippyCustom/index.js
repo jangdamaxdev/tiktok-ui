@@ -9,7 +9,6 @@ import styles from './TippyCustom.module.scss'
 const cx = classNames.bind(styles)
 
 function TippyCustom({ children, width, renderMenu, renderCustom, ...props }) {
- 
   const [content, setContent] = useState([renderMenu.EN])
   const [checkProps, setCheckProps] = useState({})
   const navigate = useNavigate()
@@ -43,7 +42,6 @@ function TippyCustom({ children, width, renderMenu, renderCustom, ...props }) {
   }
 
   const Heading = () => {
-    
     if (currentMenu.heading) {
       return (
         <div className={cx('back')} onClick={actions.handleBack}>
@@ -73,24 +71,25 @@ function TippyCustom({ children, width, renderMenu, renderCustom, ...props }) {
     }
     return false
   }
-  const contentMenu = (
-    <div className={cx('tippycustom')}>
-      {Heading()}
-      {currentMenu.content &&
-        currentMenu.content.map((item, index) => (
-          <li key={index} className={cx(item?.className)} onClick={() => handleSelect(item)}>
-            <span>{getIcon(item)}</span>
-            <h4 className={cx('title')}>{item.title}</h4>
-          </li>
-        ))}
-    </div>
-  )
 
   return (
     <div ref={divRef}>
-      <Tippy {...props} onHide={actions.handleReset} render={(attrs) => <div tabIndex="-1" {...attrs}>
-        {renderCustom || contentMenu}
-      </div>}>
+      <Tippy
+        {...props}
+        onHide={actions.handleReset}
+        render={(attrs) => (
+          <div tabIndex="-1" {...attrs} className={cx('tippycustom')}>
+            {Heading()}
+            {currentMenu.content &&
+              currentMenu.content.map((item, index) => (
+                <li key={index} className={cx(item?.className)} onClick={() => handleSelect(item)}>
+                  <span>{getIcon(item)}</span>
+                  <h4 className={cx('title')}>{item.title}</h4>
+                </li>
+              ))}
+          </div>
+        )}
+      >
         {/* Tippy require a block tag, not allow a Comp */}
         <div>{children}</div>
       </Tippy>
