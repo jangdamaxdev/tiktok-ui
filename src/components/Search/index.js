@@ -2,24 +2,18 @@ import Tippy from '@tippyjs/react/headless'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons'
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 
 import SearchResult from '~/components/SearchResult'
 
 import styles from './Search.module.scss'
 
 import { searchContent } from '~/assets/FakeAPI'
+import { useCSSProps } from '~/assets/Helpers'
 const cx = classNames.bind(styles)
 function Search({ width }) {
   const [relatedKeys, setRelatedKeys] = useState([])
   const [relatedAccounts, setRelatedAccounts] = useState([])
-  const divRef = useRef()
-  useLayoutEffect(() => {
-    divRef.current?.style.setProperty('--SearchWidth', width)
-    return () => {
-      divRef.current?.style.removeProperty('--SearchWidth')
-    }
-  })
 
   // API
   // const handleInput = () => {
@@ -33,7 +27,7 @@ function Search({ width }) {
   // ,[relatedKeys])
   //}
   return (
-    <div ref={divRef}>
+    <div ref={useCSSProps({width})}>
       <Tippy
         interactive
         // visible={relatedKeys.length > 0}

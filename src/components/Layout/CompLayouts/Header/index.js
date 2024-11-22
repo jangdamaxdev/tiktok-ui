@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudArrowUp, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
@@ -9,7 +8,7 @@ import 'tippy.js/dist/tippy.css' // optional
 import styles from './Header.module.scss'
 import Images from '~/assets/images'
 import { Button, IconBtn } from '~/components/CompButton'
-import MenuItems from '~/components/TippyCustom'
+import Menu from '~/components/Menu'
 import Search from '~/components/Search'
 
 import { content, contentLogin } from '~/assets/FakeAPI'
@@ -17,7 +16,7 @@ import { content, contentLogin } from '~/assets/FakeAPI'
 const cx = classNames.bind(styles)
 
 function Header() {
-  const isLogin = true
+  const isLogin = false
   const ActionComp = () => {
     if (isLogin) {
       return (
@@ -47,11 +46,11 @@ function Header() {
           </Tippy>
 
           {/* avatar */}
-          <MenuItems renderMenu={contentLogin} interactive delay={[0, 500]} placement="bottom-end">
+          <Menu dataRender={contentLogin} interactive delay={[0, 500]} placement="bottom-end">
             <div className={cx('avatar')}>
               <img src={contentLogin.avatar} alt="" />
             </div>
-          </MenuItems>
+          </Menu>
         </div>
       )
     } else {
@@ -60,13 +59,13 @@ function Header() {
           <Button text color={'#333'}>
             Upload
           </Button>
-          <Button>Log in</Button>
+          <Button >Log in</Button>
 
-          <MenuItems renderMenu={content}>
-            <IconBtn>
+          <Menu dataRender={content} interactive delay={[0, 500]} placement="bottom-end">
+            <IconBtn >
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </IconBtn>
-          </MenuItems>
+          </Menu>
         </div>
       )
     }
@@ -75,7 +74,7 @@ function Header() {
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         <img src={Images.src} alt="Logo" />
-        <Search width={'40rem'} />
+        <Search width='40rem' />
         <ActionComp />
       </div>
     </header>

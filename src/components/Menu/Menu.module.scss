@@ -11,8 +11,8 @@ $background-color: #f0f0f0;
 }
  
 
-.tippycustom {
-  width: var(--TippyCustomWidth, 300px);
+.menu {
+  width: var(--width, 300px);
   display: flex;
   flex-direction: column;
   background-color: #ffffff;

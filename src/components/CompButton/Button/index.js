@@ -1,7 +1,7 @@
-import { useRef, useLayoutEffect } from 'react'
 import styles from './Button.module.scss'
 import classNames from 'classnames/bind'
 import { Link } from 'react-router-dom'
+import { useCSSProps } from '~/assets/Helpers'
 
 const cx = classNames.bind(styles)
 function Button({
@@ -34,21 +34,8 @@ function Button({
     attributes.to = to
     Comp = Link
   }
-  // Add props to CSS --variable
-  const btnRef = useRef()
-  useLayoutEffect(() => {
-    for (let prop in props) {
-      btnRef.current && btnRef.current.style.setProperty(`--${prop}`, props[prop])
-    }
-    return () => {
-      for (let prop in props) {
-        btnRef.current && btnRef.current.style.removeProperty(`--${prop}`)
-      }
-    }
-  },[props])
-
   return (
-    <Comp className={cx('wrapper', { outline, disabled, text })} ref={btnRef} {...attributes}>
+    <Comp className={cx('wrapper', { outline, disabled, text })} ref={useCSSProps(props)} {...attributes}>
       {children}
     </Comp>
   )

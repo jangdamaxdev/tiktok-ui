@@ -1,15 +1,16 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { faCheck, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Tippy from '@tippyjs/react/headless'
 import classNames from 'classnames/bind'
 
-import styles from './TippyCustom.module.scss'
+import styles from './Menu.module.scss'
+import { useCSSProps } from '~/assets/Helpers'
 const cx = classNames.bind(styles)
 
-function TippyCustom({ children, width, renderMenu, renderCustom, ...props }) {
-  const [content, setContent] = useState([renderMenu.EN])
+function Menu({ children, width, dataRender, ...props }) {
+  const [content, setContent] = useState([dataRender.EN])
   const [checkProps, setCheckProps] = useState({})
   const navigate = useNavigate()
   const currentMenu = content[content.length - 1]
@@ -24,7 +25,7 @@ function TippyCustom({ children, width, renderMenu, renderCustom, ...props }) {
       setContent((preHis) => [...preHis, item.children])
     },
     langID(item) {
-      setContent([renderMenu[item.langID]])
+      setContent([dataRender[item.langID]])
     },
     check(item) {
       setCheckProps((pre) => ({ ...pre, ...item.check }))
@@ -52,14 +53,6 @@ function TippyCustom({ children, width, renderMenu, renderCustom, ...props }) {
     }
   }
 
-  const divRef = useRef()
-  useLayoutEffect(() => {
-    divRef.current?.style.setProperty('--TippyCustomWidth', width)
-    return () => {
-      divRef.current?.style.removeProperty('--TippyCustomWidth')
-    }
-  }, [width])
-
   const getIcon = (field) => {
     if (field.icon) {
       return field.icon
@@ -73,12 +66,12 @@ function TippyCustom({ children, width, renderMenu, renderCustom, ...props }) {
   }
 
   return (
-    <div ref={divRef}>
+    <div ref={useCSSProps({width})}>
       <Tippy
         {...props}
         onHide={actions.handleReset}
         render={(attrs) => (
-          <div tabIndex="-1" {...attrs} className={cx('tippycustom')}>
+          <div tabIndex="-1" {...attrs} className={cx('menu')}>
             {Heading()}
             {currentMenu.content &&
               currentMenu.content.map((item, index) => (
@@ -97,4 +90,4 @@ function TippyCustom({ children, width, renderMenu, renderCustom, ...props }) {
   )
 }
 
-export default TippyCustom
+export default Menu

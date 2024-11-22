@@ -1,8 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faArrowRightFromBracket,
-  faCheck,
-  faChevronLeft,
   faCircleHalfStroke,
   faCircleQuestion,
   faGear,
