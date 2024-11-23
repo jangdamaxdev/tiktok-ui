@@ -5,8 +5,13 @@ import { useCSSProps } from '~/assets/Helpers'
 
 const cx = classNames.bind(styles)
 function Button({
+  W = '10rem',
+  C = 'red',
+  R = '0.5rem',
   outline = false,
   disabled = false,
+  className,
+  invi,
   text = false,
   href, //  'https://github.com'
   to, // '/route'
@@ -14,15 +19,7 @@ function Button({
     console.log('Button component Onclick...')
   },
   children = 'Button',
-  ...props
 }) {
-  // DATA STRUCTURE (default)
-  //  const props = {
-  //   color : 'red',
-  //   width : '100px',
-  //   radius : '5px'
-  //   }
-  // debugger
   let Comp = 'button'
   const attributes = disabled ? {} : { onClick }
 
@@ -35,7 +32,11 @@ function Button({
     Comp = Link
   }
   return (
-    <Comp className={cx('wrapper', { outline, disabled, text })} ref={useCSSProps(props)} {...attributes}>
+    <Comp
+      className={cx('wrapper', className, { outline, disabled, text, invi })}
+      ref={useCSSProps({ W, C, R })}
+      {...attributes}
+    >
       {children}
     </Comp>
   )

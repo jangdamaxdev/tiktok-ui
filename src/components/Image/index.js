@@ -6,7 +6,7 @@ import { useCSSProps } from '~/assets/Helpers'
 
 const cx = classNames.bind(styles)
 
-function Image({ src, W, H, R, cFallback, className, alt = 'Image alt' }) {
+function Image({ W = '5rem', H = '5rem', R = ', 0.5rem', src, cFallback, className, alt = 'Image alt' }) {
   // const size = src ? 'customSize' : 'fallbackSize'
 
   return (

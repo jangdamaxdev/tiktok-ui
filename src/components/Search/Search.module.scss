@@ -1,12 +1,13 @@
 $background-color: #f0f0f0;
 $text-color: darken($background-color, 20%);
 .search {
-  width: var(--width);
+  width: var(--W);
   height: 46px;
   background-color: $background-color;
-  border-radius: var(--width);
+  border-radius: var(--W);
   display: flex;
   justify-content: center;
+  align-items: center;
   &:hover {
     outline: $text-color solid 0.5px;
     .search-btn {
@@ -37,29 +38,26 @@ $text-color: darken($background-color, 20%);
     background: rgba(22, 24, 35, 0.12);
   }
   .search-btn {
-    border-radius: 0 var(--width) var(--width) 0;
-    width: 50px;
+    border-radius: 0 var(--W) var(--W) 0;
     font-size: 1.8rem;
     color: $text-color;
+    margin: 0;
     &:active {
       background-color: $background-color;
     }
-  }
-  .clear,
-  .loading {
-    width: 18px;
-    height: 18px;
-    margin: auto 10px;
-    color: $text-color;
-    font-size: large;
-  }
-  .invisible {
-    display: none;
+  } 
+}
+.loading{
+  transform: rotate(360deg);
+  animation: loading 1s linear infinite;
+  @keyframes loading {
+    0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
   }
 }
 
 .searchResult {
-  width: var(--width, 300px);
+  width: var(--W, 300px);
   display: flex;
   flex-direction: column;
   background-color: #ffffff;

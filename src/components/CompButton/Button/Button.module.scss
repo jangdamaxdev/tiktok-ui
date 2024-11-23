@@ -1,7 +1,7 @@
 .wrapper {
-  width: var(--width, 100px);
-  height: calc(var(--width, 100px) / 2.5);
-  font-size: calc(var(--width, 100px) / 6);
+  width: var(--W);
+  height: calc(var(--W) / 2.5);
+  font-size: calc(var(--W) / 6);
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -9,12 +9,12 @@
   cursor: pointer;
   margin: 5px;
   user-select: none;
-padding: 3px;
+  padding: 3px;
 
   border: 1px solid transparent;
-  background-color: var(--color, var(--primary));
+  background-color: var(--C);
   color: var(--white);
-  border-radius: var(--radius, 5px);
+  border-radius: var(--R);
 
   &:hover {
     filter: brightness(90%);
@@ -26,8 +26,8 @@ padding: 3px;
 
 .outline {
   background-color: var(--white);
-  color: var(--color, var(--primary));
-  border-color: var(--color, var(--primary));
+  color: var(--C);
+  border-color: var(--C);
 }
 .disabled {
   pointer-events: none;
@@ -37,6 +37,8 @@ padding: 3px;
   text-decoration: underline;
   border: none;
   background-color: transparent;
-  color: var(--color, var(--primary));
-
+  color: var(--C);
+}
+.invi {
+  display: none;
 }

@@ -9,7 +9,7 @@ import styles from './Menu.module.scss'
 import { useCSSProps } from '~/assets/Helpers'
 const cx = classNames.bind(styles)
 
-function Menu({ children, width, dataRender, ...props }) {
+function Menu({ W ='30rem', children,  dataRender, ...propsTippy }) {
   const [content, setContent] = useState([dataRender.EN])
   const [checkProps, setCheckProps] = useState({})
   const navigate = useNavigate()
@@ -66,9 +66,9 @@ function Menu({ children, width, dataRender, ...props }) {
   }
 
   return (
-    <div ref={useCSSProps({width})}>
+    <div ref={useCSSProps({W})}>
       <Tippy
-        {...props}
+        {...propsTippy}
         onHide={actions.handleReset}
         render={(attrs) => (
           <div tabIndex="-1" {...attrs} className={cx('menu')}>

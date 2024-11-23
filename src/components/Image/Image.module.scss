@@ -4,11 +4,10 @@
     margin: 0.3rem;
 }
 .customSize {
-    width: var(--W, 5rem);
-    height: var(--H, 5rem);
-    border-radius: var(--R, 0.5rem);
+    width: var(--W);
+    height: var(--H);
+    border-radius: var(--R);
     margin: .3rem;
-    // padding: 0.5rem;
     vertical-align: middle;
     display: inline-block
 }
