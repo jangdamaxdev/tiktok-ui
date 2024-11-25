@@ -42,6 +42,7 @@ body {
   line-height: 1.5;
   text-rendering: optimizespeed;
   color: var(--text-color);
+  overflow-y: auto;
 }
 a[href] {
   color: var(--text-color);
@@ -61,3 +62,31 @@ input,
 .tippy-arrow {
   color: #333;
 }
+
+// Scroll bar
+// html ::-webkit-scrollbar {
+//   border-radius: 0px;
+//   width: 8px;
+// }
+// html *::-webkit-scrollbar {
+//   border-radius: 0;
+//   width: 8px;
+// }
+
+// html ::-webkit-scrollbar-thumb {
+//   border-radius: 4px;
+//   background-color: rgb(249, 9, 9);
+// }
+// html *::-webkit-scrollbar-thumb {
+//   border-radius: 4px;
+//   background-color: rgba(255, 255, 255, .08);
+// }
+
+// html ::-webkit-scrollbar-track {
+//   border-radius: 0px;
+//   background-color: green;
+// }
+// html *::-webkit-scrollbar-track {
+//   border-radius: 0;
+//   background-color: rgba(0, 0, 0, 0);
+// }

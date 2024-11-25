@@ -45,9 +45,9 @@ function Menu({ W = '30rem', children, dataRender, ...propsTippy }) {
   const Heading = () => {
     if (currentMenu.heading) {
       return (
-        <div className={cx('back')} onClick={actions.handleBack}>
-          <span>{<FontAwesomeIcon icon={faChevronLeft} />}</span>
-          <h4 className={cx('title', 'heading')}>{currentMenu.heading}</h4>
+        <div className={cx('heading')} onClick={actions.handleBack}>
+          <span className={cx('icon')}>{<FontAwesomeIcon icon={faChevronLeft} />}</span>
+          <h4 className={cx('title' )}>{currentMenu.heading}</h4>
         </div>
       )
     }
@@ -71,15 +71,17 @@ function Menu({ W = '30rem', children, dataRender, ...propsTippy }) {
         {...propsTippy}
         onHide={actions.handleReset}
         render={(attrs) => (
-          <div tabIndex="-1" {...attrs} className={cx('menu')}>
+          <div tabIndex="-1" {...attrs} className={cx('menuWrapper')}>
             {Heading()}
-            {currentMenu.content &&
-              currentMenu.content.map((item, index) => (
-                <li key={index} className={cx(item?.className)} onClick={() => handleSelect(item)}>
-                  <span>{getIcon(item)}</span>
-                  <h4 className={cx('title')}>{item.title}</h4>
-                </li>
-              ))}
+            <div className={cx('contents')}>
+              {currentMenu.content &&
+                currentMenu.content.map((item, index) => (
+                  <li key={index} className={cx(item?.className)} onClick={() => handleSelect(item)}>
+                    <span className={cx('icon')}>{getIcon(item)}</span>
+                    <h4 className={cx('title')}>{item.title}</h4>
+                  </li>
+                ))}
+            </div>
           </div>
         )}
       >

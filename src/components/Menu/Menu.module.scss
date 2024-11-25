@@ -1,57 +1,60 @@
 $background-color: #f0f0f0;
 
-@mixin item {
+@mixin rowItem {
   display: flex;
   padding: 9px 16px;
-  // align-items: center;
   justify-content: start;
   cursor: pointer;
   -webkit-box-align: center;
   font-size: 2rem;
 }
- 
 
-.menu {
+.menuWrapper {
   width: var(--W);
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
   max-height: min(-156px + 100vh, 760px);
   min-height: 100px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 12px;
   border-radius: 8px;
   padding-block: 8px;
-  overflow: hidden auto;
   list-style-type: none;
+  background-color: var(--white) !important;
+
+}
+
+.heading {
+  @include rowItem;
+  .title {
+    font-weight: 500;
+  }
+  position: relative;
+}
+
+.contents {
+  overflow: hidden auto;
 
   li {
-    @include item;
+    @include rowItem;
     &:hover {
       background-color: $background-color;
     }
   }
-  span {
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-basis: 30px;
-  }
-  .title {
-    padding: 0 10px;
-    font-weight: 400;
-    line-height: 24px;
-  }
-  
 }
-.back {
-  @include item;
+.icon {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 30px;
 }
-.heading {
-  font-weight: 500 !important;
+.title {
+  padding: 0 10px;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 // className from dataRender input
-.separate{
-  border-top: 1px solid #e0e0e0
+.separate {
+  border-top: 1px solid #e0e0e0;
 }

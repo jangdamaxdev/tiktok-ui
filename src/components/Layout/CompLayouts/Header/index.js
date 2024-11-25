@@ -51,11 +51,7 @@ function Header() {
 
           {/* avatar */}
           <Menu dataRender={contentLogin} interactive delay={[0, 500]} placement="bottom-end" hideOnClick={false}>
-            <Image 
-            src={contentLogin.avatar} 
-            R='20rem'
-            alt="avatar" 
-            />
+            <Image src={contentLogin.avatar} R="20rem" alt="avatar" />
           </Menu>
         </div>
       )
@@ -79,7 +75,7 @@ function Header() {
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
-        <Image src={Images.logo} W='11rem' H='4rem' onClick={() => navigate(routesConfig.home)}/>
+        <Image src={Images.logo} W="11rem" H="4rem" onClick={() => navigate(routesConfig.home)} />
         <Search width="40rem" />
         <ActionComp />
       </div>

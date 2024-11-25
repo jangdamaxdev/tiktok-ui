@@ -66,12 +66,13 @@ $text-color: darken($background-color, 20%);
   width: var(--W, 300px);
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
+  background-color: var(--white) !important;
   max-height: min(-156px + 100vh, 760px);
   min-height: 100px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 12px;
   border-radius: 8px;
   padding-block: 8px;
-  overflow: hidden auto;
+  overflow-y: overlay;
+  scrollbar-gutter: stable;
   list-style-type: none;
 }
