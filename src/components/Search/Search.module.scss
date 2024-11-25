@@ -26,6 +26,8 @@ $text-color: darken($background-color, 20%);
     margin-left: 16px;
     color: darken($text-color, 80%);
     caret-color: var(--primary);
+    font-family: var(--font-family);
+
     &:not(:placeholder-shown) ~ .search-btn {
       color: darken($text-color, 90%);
     }
@@ -45,14 +47,18 @@ $text-color: darken($background-color, 20%);
     &:active {
       background-color: $background-color;
     }
-  } 
+  }
 }
-.loading{
+.loading {
   transform: rotate(360deg);
   animation: loading 1s linear infinite;
   @keyframes loading {
-    0% {transform: rotate(0deg);}
-  100% {transform: rotate(360deg);}
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 }
 

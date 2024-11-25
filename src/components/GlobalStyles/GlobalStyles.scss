@@ -21,6 +21,7 @@
   --white: #fff;
   --text-color: #333;
   --text-sub-color: #a5a3a3;
+  --font-family: 'TikTokFont', sans-serif;
   //Default layout
   --default-layout-header-height: 6rem;
   --default-layout-width: 115rem;
@@ -36,7 +37,7 @@ html {
 }
 
 body {
-  font-family: 'TikTokFont', sans-serif;
+  font-family: var(--font-family);
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizespeed;
@@ -54,9 +55,9 @@ input,
   background-color: transparent;
 }
 // TIPPY
-.tippy-box{
+.tippy-box {
   background-color: #333;
 }
-.tippy-arrow{
+.tippy-arrow {
   color: #333;
 }

@@ -2,7 +2,7 @@ import styles from './IconBtn.module.scss'
 import classNames from 'classnames/bind'
 import { memo } from 'react'
 import { Link } from 'react-router-dom'
-import { useCSSProps } from '~/assets/Helpers'
+import { useCSSProps } from '~/assets/CustomHooks'
 
 const cx = classNames.bind(styles)
 function IconBtn({
@@ -13,16 +13,14 @@ function IconBtn({
   className,
   disabled = false,
   href, //  'https://github.com'
-  to, // '/route'
-  onClick = () => {
-    console.log('IconBtn component Onclick...')
-  },
+  to, // '/route'  
   children = 'Button',
+  ...attributes
 }) {
   // console.log('render IconBtn');
-  
+
   let Comp = 'button'
-  const attributes = disabled ? {} : { onClick }
+   attributes = disabled ? {} : attributes
 
   if (href) {
     attributes.href = href
@@ -32,6 +30,7 @@ function IconBtn({
     attributes.to = to
     Comp = Link
   }
+
   // Add props to CSS --variable
   return (
     <Comp className={cx('wrapper', className, { disabled, invi })} ref={useCSSProps({ W, C, R })} {...attributes}>

@@ -6,10 +6,10 @@ import Tippy from '@tippyjs/react/headless'
 import classNames from 'classnames/bind'
 
 import styles from './Menu.module.scss'
-import { useCSSProps } from '~/assets/Helpers'
+import { useCSSProps } from '~/assets/CustomHooks'
 const cx = classNames.bind(styles)
 
-function Menu({ W ='30rem', children,  dataRender, ...propsTippy }) {
+function Menu({ W = '30rem', children, dataRender, ...propsTippy }) {
   const [content, setContent] = useState([dataRender.EN])
   const [checkProps, setCheckProps] = useState({})
   const navigate = useNavigate()
@@ -66,7 +66,7 @@ function Menu({ W ='30rem', children,  dataRender, ...propsTippy }) {
   }
 
   return (
-    <div ref={useCSSProps({W})}>
+    <div ref={useCSSProps({ W })}>
       <Tippy
         {...propsTippy}
         onHide={actions.handleReset}

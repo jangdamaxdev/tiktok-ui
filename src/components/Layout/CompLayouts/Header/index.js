@@ -4,6 +4,7 @@ import { faCloudArrowUp, faEllipsisVertical } from '@fortawesome/free-solid-svg-
 import { faMessage, faPaperPlane } from '@fortawesome/free-regular-svg-icons'
 import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css' // optional
+import { useNavigate } from 'react-router-dom'
 
 import styles from './Header.module.scss'
 import Images from '~/assets/images'
@@ -13,11 +14,13 @@ import Search from '~/components/Search'
 
 import { content, contentLogin } from '~/assets/FakeAPI'
 import Image from '~/components/Image'
+import routesConfig from '~/config/routes'
 
 const cx = classNames.bind(styles)
 
 function Header() {
   const isLogin = true
+  const navigate = useNavigate()
   const ActionComp = () => {
     if (isLogin) {
       return (
@@ -47,7 +50,7 @@ function Header() {
           </Tippy>
 
           {/* avatar */}
-          <Menu dataRender={contentLogin} interactive delay={[0, 500]} placement="bottom-end">
+          <Menu dataRender={contentLogin} interactive delay={[0, 500]} placement="bottom-end" hideOnClick={false}>
             <Image 
             src={contentLogin.avatar} 
             R='20rem'
@@ -76,7 +79,7 @@ function Header() {
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
-        <Image src={Images.logo} W='11rem' H='4rem'/>
+        <Image src={Images.logo} W='11rem' H='4rem' onClick={() => navigate(routesConfig.home)}/>
         <Search width="40rem" />
         <ActionComp />
       </div>

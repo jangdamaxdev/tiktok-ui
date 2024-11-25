@@ -1,19 +1,20 @@
+import { useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Tippy from '@tippyjs/react/headless'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-
-import SearchResult from '~/components/SearchResult'
 
 import styles from './Search.module.scss'
-
-import { useCSSProps, useDebounce } from '~/assets/Helpers'
+import SearchResult from '~/components/SearchResult'
+import { useCSSProps, useDebounce } from '~/assets/CustomHooks'
 import { IconBtn } from '~/components/CompButton'
-import { useNavigate } from 'react-router-dom'
+import { getUserTiktok } from '~/APIs/Requests'
+import routesConfig from '~/config/routes'
+
 const cx = classNames.bind(styles)
 function Search({ W = '40rem' }) {
-  const [input, setInput] = useState()
+  const [input, setInput] = useState('')
   const [result, setResult] = useState()
   const [showresult, setShowResult] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -22,37 +23,46 @@ function Search({ W = '40rem' }) {
   const inputRef = useRef()
   const actions = {
     clear() {
-      console.log('running actions.clear()')
-      setInput()
+      // console.log('running actions.clear()')
+      setInput('')
       setResult()
       setShowResult(false)
-      inputRef.current.value = ''
       inputRef.current.focus()
     },
-    input() {
-      const valueInput = inputRef.current.value.trim().replace(/\s+/g, ' ')
-      valueInput ? setInput(valueInput) : actions.clear()
+    input(e) {
+      const valueInput = e.target.value.replace(/\s+/g, ' ')
+      !valueInput.startsWith(' ') && setInput(valueInput)
+      valueInput === '' && setResult()
     },
     clickOut() {
       setShowResult(false)
     },
     search() {
-      navigate('/search')
+      navigate(routesConfig.search)
     },
-    callAPI(realInput) {
+    callAPI(keyword) {
       setLoading(true)
-      const response = fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${realInput}&type=less`)
-        .then((res) => res.json())
-        .then((res) => {
-          setResult(res?.data)
+      getUserTiktok({
+        keyword,
+        // onBefore:(path, params) => {
+        // logic updatepath = '/users/search'
+        // logic updateparams = {
+        //       q: keyword,
+        //       type: 'more',
+        //     }
+        // return [ updatepath ,  updateparams  ]
+        // },
+        onSuccess: (response) => {
+          setResult(response.data)
           setShowResult(true)
           setLoading(false)
-        })
-        .catch((error) => console.log('Error: ', error))
+        },
+      })
     },
   }
 
   useDebounce(actions.callAPI, input, 800)
+  console.log(`render main Comp Search >> input:${input}.`)
 
   return (
     <div ref={useCSSProps({ W })}>
@@ -71,6 +81,7 @@ function Search({ W = '40rem' }) {
         <div className={cx('search')}>
           <input
             ref={inputRef}
+            value={input}
             onChange={actions.input}
             onFocus={() => setShowResult(true)}
             type="text"
@@ -88,7 +99,12 @@ function Search({ W = '40rem' }) {
           )}
           <span></span>
 
-          <IconBtn W="4.6rem" className={cx('search-btn')} onClick={actions.search}>
+          <IconBtn
+            W="4.6rem"
+            className={cx('search-btn')}
+            onClick={actions.search}
+            onMouseDown={(e) => e.preventDefault()}
+          >
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </IconBtn>
         </div>

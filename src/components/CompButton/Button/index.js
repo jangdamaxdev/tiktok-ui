@@ -1,7 +1,7 @@
 import styles from './Button.module.scss'
 import classNames from 'classnames/bind'
 import { Link } from 'react-router-dom'
-import { useCSSProps } from '~/assets/Helpers'
+import { useCSSProps } from '~/assets/CustomHooks'
 
 const cx = classNames.bind(styles)
 function Button({
@@ -15,13 +15,11 @@ function Button({
   text = false,
   href, //  'https://github.com'
   to, // '/route'
-  onClick = () => {
-    console.log('Button component Onclick...')
-  },
   children = 'Button',
+  ...attributes
 }) {
   let Comp = 'button'
-  const attributes = disabled ? {} : { onClick }
+  attributes = disabled ? {} : attributes
 
   if (href) {
     attributes.href = href

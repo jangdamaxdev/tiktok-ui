@@ -3,6 +3,7 @@ import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
+import routesConfig from '~/config/routes'
 
 const cx = classNames.bind(styles)
 
@@ -40,7 +41,7 @@ function SearchResult({ relatedKeys, relatedAccounts }) {
           </li>
         ))}
         <div className={cx('viewAll')}>
-          <p onClick={() => navigate('/search')}>View all results for "{relatedKeys[0]}"</p>
+          <p onClick={() => navigate(routesConfig.search)}>View all results for "{relatedKeys[0]}"</p>
         </div>
       </div>
     </>
