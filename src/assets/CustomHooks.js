@@ -1,5 +1,5 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-
+import { useEffect, useLayoutEffect, useRef } from 'react'
+import PropTypes from 'prop-types'
 function useCSSProps(props) {
   const ref = useRef()
 
@@ -15,19 +15,27 @@ function useCSSProps(props) {
   }, [props])
   return ref
 }
-function useDebounce(callback, value, delayTime) {
+useCSSProps.propTypes = {
+  props: PropTypes.string.isRequired,
+}
+
+function useDebounce(onTimeout = (value) => console.log('realValue: ', value), value, delayTime = 500) {
   // const [realValue, setRealValue] = useState(value)
 
   useEffect(() => {
     const timeID =
       value &&
       setTimeout(() => {
-        callback(value)
-      }, delayTime) // Waiting for callback
+        onTimeout(value)
+      }, delayTime) // Waiting for onTimeout()
     return () => clearTimeout(timeID)
   }, [value])
 
   // return realValue
 }
-
+useDebounce.propTypes = {
+  onTimeout: PropTypes.func,
+  value: PropTypes.string.isRequired,
+  delayTime: PropTypes.number,
+}
 export { useCSSProps, useDebounce }

@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { faCheck, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Tippy from '@tippyjs/react/headless'
 import classNames from 'classnames/bind'
 
-import styles from './Menu.module.scss'
+import styles from './SCSS/Menu.module.scss'
 import { useCSSProps } from '~/assets/CustomHooks'
 const cx = classNames.bind(styles)
 
@@ -47,7 +48,7 @@ function Menu({ W = '30rem', children, dataRender, ...propsTippy }) {
       return (
         <div className={cx('heading')} onClick={actions.handleBack}>
           <span className={cx('icon')}>{<FontAwesomeIcon icon={faChevronLeft} />}</span>
-          <h4 className={cx('title' )}>{currentMenu.heading}</h4>
+          <h4 className={cx('title')}>{currentMenu.heading}</h4>
         </div>
       )
     }
@@ -86,10 +87,14 @@ function Menu({ W = '30rem', children, dataRender, ...propsTippy }) {
         )}
       >
         {/* Tippy require a block tag, not allow a Comp */}
-        <div>{children}</div>
+        <div>{React.Children.only(children)}</div>
       </Tippy>
     </div>
   )
 }
-
+Menu.propTypes = {
+  W: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  dataRender: PropTypes.object,
+}
 export default Menu

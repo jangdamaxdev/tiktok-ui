@@ -5,12 +5,11 @@ import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons'
 
-import styles from './Search.module.scss'
-import SearchResult from '~/components/SearchResult'
 import { useCSSProps, useDebounce } from '~/assets/CustomHooks'
-import { IconBtn } from '~/components/CompButton'
 import { getUserTiktok } from '~/APIs/Requests'
 import routesConfig from '~/config/routes'
+import styles from './SCSS/Search.module.scss'
+import { IconBtn, SearchResult } from '~/Comps/Base'
 
 const cx = classNames.bind(styles)
 function Search({ W = '40rem' }) {

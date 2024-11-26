@@ -6,15 +6,14 @@ import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css' // optional
 import { useNavigate } from 'react-router-dom'
 
-import styles from './Header.module.scss'
-import Images from '~/assets/images'
-import { Button, IconBtn } from '~/components/CompButton'
-import Menu from '~/components/Menu'
-import Search from '~/components/Search'
 
 import { content, contentLogin } from '~/assets/FakeAPI'
-import Image from '~/components/Image'
 import routesConfig from '~/config/routes'
+import styles from './Header.module.scss'
+import images from '~/assets/images'
+import { Button, IconBtn, Menu, Image } from '~/Comps/Base'
+import { Search } from '~/Comps/Combo'
+
 
 const cx = classNames.bind(styles)
 
@@ -75,7 +74,7 @@ function Header() {
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
-        <Image src={Images.logo} W="11rem" H="4rem" onClick={() => navigate(routesConfig.home)} />
+        <Image src={images.logo} W="11rem" H="4rem" onClick={() => navigate(routesConfig.home)} />
         <Search width="40rem" />
         <ActionComp />
       </div>

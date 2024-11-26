@@ -1,9 +1,9 @@
-import images from '~/assets/images'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
-
-import styles from './Image.module.scss'
 import { useCSSProps } from '~/assets/CustomHooks'
 
+import styles from './SCSS/Image.module.scss'
+import images from '~/assets/images'
 const cx = classNames.bind(styles)
 
 function Image({
@@ -11,7 +11,7 @@ function Image({
   H = '5rem',
   R = ', 0.5rem',
   src,
-  cFallback,
+  cFallback = images.default,
   className,
   alt = 'Image alt',
   ...attributes
@@ -20,12 +20,20 @@ function Image({
   return (
     <img
       ref={useCSSProps({ W, H, R })}
-      src={src || cFallback || images.default}
+      src={src || cFallback}
       className={cx('customSize', className)}
       alt={alt}
       {...attributes}
     />
   )
 }
-
+Image.propTypes = {
+  W: PropTypes.string,
+  H: PropTypes.string,
+  R: PropTypes.string,
+  src: PropTypes.string,
+  cFallback: PropTypes.string,
+  className: PropTypes.string,
+  alt: PropTypes.string,
+}
 export default Image

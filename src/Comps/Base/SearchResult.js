@@ -1,10 +1,11 @@
-import styles from './SearchResult.module.scss'
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
-import routesConfig from '~/config/routes'
 
+import routesConfig from '~/config/routes'
+import styles from './SCSS/SearchResult.module.scss'
 const cx = classNames.bind(styles)
 
 function SearchResult({ relatedKeys, relatedAccounts }) {
@@ -47,5 +48,7 @@ function SearchResult({ relatedKeys, relatedAccounts }) {
     </>
   )
 }
-
+SearchResult.propTypes = {
+  relatedKeys: PropTypes.array, relatedAccounts: PropTypes.array
+}
 export default SearchResult

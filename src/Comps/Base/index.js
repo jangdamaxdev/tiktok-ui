@@ -1,0 +1,6 @@
+export { default as Button } from './Button'
+export { default as GlobalStyles } from './GlobalStyles'
+export { default as IconBtn } from './IconBtn'
+export { default as Image } from './Image'
+export { default as Menu } from './Menu'
+export { default as SearchResult } from './SearchResult'

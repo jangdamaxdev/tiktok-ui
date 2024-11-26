@@ -1,8 +1,10 @@
-import styles from './Button.module.scss'
+import PropTypes from 'prop-types'
+import React from 'react'
 import classNames from 'classnames/bind'
 import { Link } from 'react-router-dom'
-import { useCSSProps } from '~/assets/CustomHooks'
 
+import { useCSSProps } from '~/assets/CustomHooks'
+import styles from './SCSS/Button.module.scss'
 const cx = classNames.bind(styles)
 function Button({
   W = '10rem',
@@ -10,9 +12,9 @@ function Button({
   R = '0.5rem',
   outline = false,
   disabled = false,
-  className,
-  invi,
   text = false,
+  invi = false,
+  className,
   href, //  'https://github.com'
   to, // '/route'
   children = 'Button',
@@ -35,9 +37,21 @@ function Button({
       ref={useCSSProps({ W, C, R })}
       {...attributes}
     >
-      {children}
+      {React.Children.only(children)}
     </Comp>
   )
 }
-
+Button.propTypes = {
+  W: PropTypes.string,
+  C: PropTypes.string,
+  R: PropTypes.string,
+  outline: PropTypes.bool,
+  disabled: PropTypes.bool,
+  text: PropTypes.bool,
+  invi: PropTypes.bool,
+  className: PropTypes.string,
+  href: PropTypes.string,
+  to: PropTypes.string,
+  children: PropTypes.node.isRequired,
+}
 export default Button

@@ -1,4 +1,4 @@
-import Header from '~/layouts/CompLayouts/Header'
+import Header from '~/layouts/CompLayouts/Header/Header'
 
 function UploadLayout({ children }) {
   return (

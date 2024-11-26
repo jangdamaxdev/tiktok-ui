@@ -1,5 +1,6 @@
 import axios from 'axios'
-
+import PropTypes from 'prop-types'
+// ulties
 const Tiktok = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
 })
@@ -14,9 +15,10 @@ Tiktok.interceptors.request.use(
   },
   (error) => {
     console.error('Error on Tiktok.interceptors.request: ', error)
-    return Promise.reject(error);
+    return Promise.reject(error)
   },
 )
+
 const getUserTiktok = async ({
   keyword,
   type = 'less',
@@ -39,5 +41,12 @@ const getUserTiktok = async ({
   } catch (error) {
     onFail(error)
   }
+}
+getUserTiktok.propTypes = {
+  keyword: PropTypes.string,
+  type: PropTypes.string,
+  onBefore: PropTypes.func,
+  onSuccess: PropTypes.func,
+  onFail: PropTypes.func,
 }
 export { getUserTiktok }
