@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { content, contentLogin } from '~/assets/FakeAPI'
 import routesConfig from '~/config/routes'
-import styles from './Header.module.scss'
+import styles from './SCSS/Header.module.scss'
 import images from '~/assets/images'
 import { Button, IconBtn, Menu, Image } from '~/Comps/Base'
 import { Search } from '~/Comps/Combo'
