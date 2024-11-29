@@ -52,4 +52,4 @@ IconBtn.propTypes = {
   to: PropTypes.string,
   children: PropTypes.node.isRequired,
 }
-export default memo(IconBtn)
+export default IconBtn

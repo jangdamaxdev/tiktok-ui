@@ -1,9 +1,10 @@
 import classNames from 'classnames/bind'
 import styles from './DefaultLayout.module.scss'
 import { Header, Sidebar } from '~/layouts/CompLayouts'
+const cx = classNames.bind(styles)
 
 function DefaultLayout({ children }) {
-  const cx = classNames.bind(styles)
+ 
   return (
     <div className={cx('wrapper')}>
       <Header />
